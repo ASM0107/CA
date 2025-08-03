@@ -166,6 +166,40 @@
     .tab.active {
       background: var(--accent-green);
     }
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+      line-height: 1.75;
+    }
+    section {
+      padding: 4rem 1rem;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    .divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
   </style>
 </head>
 <body>
@@ -309,3 +343,4 @@
   </footer>
 </body>
 </html>
+
