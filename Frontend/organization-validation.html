@@ -5,18 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Organization Validation | ApnaSSL</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-blue: #1e3a8a;
-      --accent-green: #22c55e;
-      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg-blue);
-      color: white;
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
     }
 
     a {
@@ -190,23 +180,23 @@
 </head>
 <body>
   <header class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div style="display: flex; align-items: center;">
-         <img src="ApnaSSL.png" alt="ApnaSSL Logo" style="width: 108px; height: auto;">
-        <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
+    <div class="header-brand">
+      <div class="header-logo-row">
+         <img src="ApnaSSL.png" alt="ApnaSSL Logo" class="header-logo-icon">
+        <span class="header-logo-text">ApnaSSL</span>
       </div>
-      <nav style="display: flex; align-items: center; gap: 2rem;">
+      <nav>
         <a href="certificates.html">Certificates</a>
         <a href="support.html">Support</a>
         <a href="about.html">About</a>
-        <a href="login.html" class="btn btn-outline" style="margin-left:1rem;">Login</a>
+        <a href="login.html" class="btn btn-outline ml-3">Login</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <h1 style="text-align: center;">Organization Validation</h1>
-    <p style="text-align: center; color: #cbd5e1; max-width: 600px; margin: 1rem auto;">
+    <h1 class="text-center">Organization Validation</h1>
+    <p class="text-center text-muted container-sm mb-4">
       Verify your organization's identity to obtain OV or EV SSL certificates.
     </p>
 
@@ -274,7 +264,7 @@
           <div class="document-upload">
             <div class="document-icon">📄</div>
             <p>Upload Certificate of Incorporation or equivalent</p>
-            <small style="color: #cbd5e1;">PDF, JPG or PNG (Max 5MB)</small>
+            <small class="text-muted">PDF, JPG or PNG (Max 5MB)</small>
           </div>
         </div>
 
@@ -283,7 +273,7 @@
           <div class="document-upload">
             <div class="document-icon">📄</div>
             <p>Upload GST Registration or equivalent</p>
-            <small style="color: #cbd5e1;">PDF, JPG or PNG (Max 5MB)</small>
+            <small class="text-muted">PDF, JPG or PNG (Max 5MB)</small>
           </div>
         </div>
 
@@ -292,7 +282,7 @@
           <div class="document-upload">
             <div class="document-icon">📄</div>
             <p>Upload any additional supporting documents</p>
-            <small style="color: #cbd5e1;">PDF, JPG or PNG (Max 5MB)</small>
+            <small class="text-muted">PDF, JPG or PNG (Max 5MB)</small>
           </div>
         </div>
 
