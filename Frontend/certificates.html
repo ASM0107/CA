@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SSL Certificates | ApnaSSL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --accent-green: #22c55e;
+      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
+      font-family: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg-blue);
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    a { color: white; text-decoration: none; }
+
+    .container {
+      max-width: 1280px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;   
+    gap: 0.5rem;                     
+    padding: 0.5rem 0rem;         
+    flex-wrap: wrap;              
+    }
+
+    .logo-section {
+      text-align: center;
+    }
+
+    .logo-section img {
+      width: 400px;
+      margin-bottom: 0px;
+    }
+
+    .logo-section .text {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .logo-section .subtext {
+      font-size: 0.9rem;
+      color: #fca5a5;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text span {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.3rem;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .hero-text p {
+      color: #cbd5e1;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .badge-alt {
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.4rem;
+      background: rgba(255,255,255,0.12);
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    .price {
+      font-size: 2rem;
+      color: #4ade80;
+      margin: 1rem 0;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-green {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .btn-green:hover {
+      background: #16a34a;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .table-compare {
+      width: 100%;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      border-collapse: collapse;
+    }
+
+    .table-compare th, .table-compare td {
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .table-compare th {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section with Logo + Plan Text -->
+  <section class="container hero">
+    <div class="logo-section">
+      <img src="ApnaSSL.png" alt="ApnaSSL Logo">
+    </div>
+    <div class="hero-text">
+      <span>Find the Right Plan</span>
+      <h1>SSL Certificate Plans</h1>
+      <p>Choose the level of trust, authentication, and assurance you need.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <main class="container">
+    <div class="pricing-cards">
+      <!-- Free DV -->
+      <div class="card">
+        <h3>Free Domain Validation (DV)</h3>
+        <p style="color:#cbd5e1;">Basic encryption for personal and small projects. Issued instantly.</p>
+        <div class="price">₹0 / year</div>
+        <div class="badges">
+          <span class="badge-alt">Auto Renewal</span>
+          <span class="badge-alt">Browser Trusted</span>
+          <span class="badge-alt">HTTPS Padlock</span>
+        </div>
+        <button class="btn btn-green" style="margin-top:1.5rem;">Get Free DV</button>
+      </div>
+
+      <!-- Business OV -->
+      <div class="card">
+        <h3>Business Organization Validation (OV)</h3>
+        <p style="color:#cbd5e1;">Strong encryption + brand identity with business verification.</p>
+        <div class="price">₹499 / year</div>
+        <div class="badges">
+          <span class="badge-alt">Business Verified</span>
+          <span class="badge-alt">Warranty</span>
+          <span class="badge-alt">Faster Support</span>
+        </div>
+        <button class="btn btn-outline" style="margin-top:1.5rem;">Buy OV</button>
+      </div>
+
+      <!-- Premium EV -->
+      <div class="card">
+        <h3>Premium Extended Validation (EV)</h3>
+        <p style="color:#cbd5e1;">Maximum security and trust for banks, fintech, and eCommerce.</p>
+        <div class="price">₹1499 / year</div>
+        <div class="badges">
+          <span class="badge-alt">Green Address Bar</span>
+          <span class="badge-alt">Company Documented</span>
+          <span class="badge-alt">Business Guarantee</span>
+        </div>
+        <button class="btn btn-outline" style="margin-top:1.5rem;">Buy EV</button>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <section>
+      <h2 class="section-title">Compare Plans</h2>
+      <table class="table-compare">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>DV</th>
+            <th>OV</th>
+            <th>EV</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Encryption</td>
+            <td>✓ 256-bit</td>
+            <td>✓ 256-bit</td>
+            <td>✓ 256-bit</td>
+          </tr>
+          <tr>
+            <td>Domain Validation</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+          </tr>
+          <tr>
+            <td>Organization Validation</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✓</td>
+          </tr>
+          <tr>
+            <td>Green Bar Address</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td>✓</td>
+          </tr>
+          <tr>
+            <td>Setup Time</td>
+            <td>Instant</td>
+            <td>1–2 Days</td>
+            <td>3–5 Days</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="text-align:center; margin-top:4rem;">
+      <h2 style="font-size: 2rem; font-weight: bold;">Ready to choose a certificate?</h2>
+      <p style="color:#cbd5e1;">Join 2M+ websites already protected by ApnaSSL.</p>
+      <div style="margin-top:2rem;">
+        <button class="btn btn-green">Start for Free</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="text-align:center; padding: 2rem 0;">
+      <p style="color: #cbd5e1;">© 2025 ApnaSSL. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

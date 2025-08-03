@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support | ApnaSSL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --accent-green: #22c55e;
+      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-blue);
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .header-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header-logo-icon {
+      width: 52px;
+      height: auto;
+      display: block;
+    }
+
+    .header-logo-text {
+      font-family: 'Poppins', 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 2.8rem;
+      letter-spacing: 0.01em;
+      color: white;
+      line-height: 1;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .support-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .faq-section {
+      max-width: 800px;
+      margin: 4rem auto;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .faq-item h3 {
+      margin: 0;
+      color: var(--accent-green);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 4rem auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    .btn-green {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .btn-green:hover {
+      background: #16a34a;
+    }
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      line-height: 1.75;
+    }
+
+    section {
+      padding: 4rem 1rem;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    .divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center;">
+         <img src="ApnaSSL.png" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
+        <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
+      </div>
+      <nav style="display: flex; align-items: center; gap: 1.5rem">
+        <a href="#">Certificates</a>
+        <a href="#">Support</a>
+        <a href="#">About</a>
+        <button class="btn btn-outline" style="margin-left:1rem;">Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 style="text-align: center; margin-bottom: 0.5rem;">How Can We Help?</h1>
+    <p style="text-align: center; color: #cbd5e1; margin-bottom: 3rem;">
+      Get the support you need, when you need it
+    </p>
+
+    <div class="support-grid">
+      <div class="support-card">
+        <h2>Installation Guides</h2>
+        <p>Step-by-step guides for installing SSL certificates on different platforms.</p>
+        <a href="#" class="btn btn-green">View Guides</a>
+      </div>
+      <div class="support-card">
+        <h2>Knowledge Base</h2>
+        <p>Find answers to common questions about SSL certificates and security.</p>
+        <a href="#" class="btn btn-green">Browse Articles</a>
+      </div>
+      <div class="support-card">
+        <h2>Live Chat</h2>
+        <p>Get instant help from our technical support team.</p>
+        <a href="#" class="btn btn-green">Start Chat</a>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <h3>What is an SSL certificate?</h3>
+        <p>An SSL certificate is a digital certificate that authenticates a website's identity and enables an encrypted connection.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How long does it take to issue a certificate?</h3>
+        <p>DV certificates are issued instantly. OV certificates take 1-2 days, while EV certificates typically take 3-5 days for thorough verification.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I upgrade my certificate?</h3>
+        <p>Yes, you can upgrade from DV to OV or EV certificates at any time. Contact our support team for assistance.</p>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Contact Support</h2>
+      
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-green">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align:left;">
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="#">SSL Certificates</a></li>
+          <li><a href="#">Wildcard SSL</a></li>
+          <li><a href="#">Multi-Domain SSL</a></li>
+          <li><a href="#">Code Signing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Installation Guides</a></li>
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">Status Page</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider">
+      <p style="color: #cbd5e1;">© 2025 ApnaSSL. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

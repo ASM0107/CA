@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApnaSSL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --accent-green: #22c55e;
+      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-blue);
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+  .header-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-logo-icon {
+    width: 52px;      /* Adjust for proportion to text */
+    height: auto;     /* Maintains aspect ratio */
+    display: block;
+  }
+
+  .header-logo-text {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 600;                       /* SemiBold like the logo */
+    font-size: 2.8rem;                      /* Adjust to closely match image size */
+    letter-spacing: 0.01em;
+    color: white;
+    line-height: 1;                         /* Remove vertical extra space */
+  }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    header {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav a {
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #93c5fd;
+    }
+
+    .btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-green {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .btn-green:hover {
+      background: #16a34a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #1e3a8a;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-green);
+      color: black;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .card3 {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+      align-items: center;    
+      text-align: center;
+  }
+
+    .input-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .input-group input::placeholder {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      line-height: 1.75;
+    }
+
+    section {
+      padding: 4rem 1rem;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    .divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center;">
+         <img src="ApnaSSL.png" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
+        <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
+      </div>
+      <nav style="display: flex; align-items: center;">
+        <a href="#">Certificates</a>
+        <a href="#">Support</a>
+        <a href="#">About</a>
+        <button class="btn btn-outline" style="margin-left:1rem;">Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section style="display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <!-- Left -->
+      <div>
+        <span class="badge">Innovation to family friendly TLS Certifications</span>
+        <h1 style="font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">Secure Your Website with <span style="color: #4ade80;">Trusted SSL</span></h1>
+        <p style="font-size: 1.25rem; color: #cbd5e1;">Get industry-leading SSL certificates that protect your website and build customer trust. Fast, reliable, and affordable solutions for businesses of all sizes.</p>
+        
+        <div class="card3" style="margin-top:2rem;">
+          <h3 style="margin-bottom: 1rem;">Ready for your Certification?</h3>
+          <div>
+            <label for="domain">Enter your domain name:</label>
+            <div class="input-group" style="margin-top: 0.5rem;">
+              <input id="domain" type="text" placeholder="www.yourwebsite.com" />
+              <button class="btn btn-green">Next Step</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem;">
+          <button class="btn btn-green">✓ Trusted by Authorities</button>
+          <button class="btn btn-green">⏱ Auto Renewal</button>
+          <button class="btn btn-green">🛡 Free to Use</button>
+          <button class="btn btn-green">⚡ Easy, Fast and Secure</button>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="grid grid-2">
+        <div class="card">
+          <div style="font-size:2rem; color: #4ade80;">99.9%</div>
+          <h2>Uptime Guarantee</h2>
+        </div>
+        <div class="card">
+          <div style="font-size:2rem; color: #4ade80;">24/7</div>
+          <h2>Expert Support</h2>
+        </div>
+        <div class="card">
+          <div style="font-size:2rem; color: #4ade80;">2M+</div>
+          <h2>Websites Protected</h2>
+        </div>
+        <div class="card">
+          <div style="font-size:2rem; color: #4ade80;">256-bit</div>
+          <h2>Encryption</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section>
+      <div class="text-center" style="margin-bottom: 2rem; text-align: center;">
+        <h2 class="text-3xl font-bold">Complete SSL Certificate Solutions</h2>
+        <p style="color: #cbd5e1; max-width: 600px; margin: auto;">From domain validation to extended validation certificates, we have the right solution for your business needs.</p>
+      </div>
+      <div class="grid grid-3 container">
+        <div class="card">
+          <h3>Domain Validation</h3>
+          <p style="color: #cbd5e1;">Perfect for personal websites and blogs. Quick validation process with basic encryption.</p>
+          <button class="btn btn-outline">Learn More →</button>
+        </div>
+        <div class="card">
+          <h3>Organization Validation</h3>
+          <p style="color: #cbd5e1;">Ideal for business websites. Enhanced validation with company verification.</p>
+          <button class="btn btn-outline">Learn More →</button>
+        </div>
+        <div class="card">
+          <h3>Extended Validation</h3>
+          <p style="color: #cbd5e1;">Maximum trust for e-commerce and financial sites. Highest level of authentication.</p>
+          <button class="btn btn-outline">Learn More →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="text-align:center;">
+      <h2 style="font-size: 2rem; font-weight: bold;">Ready to Secure Your Website?</h2>
+      <p style="color:#cbd5e1;">Join millions of website owners who trust ApnaSSL for their security needs.</p>
+      <div style="margin-top:2rem;">
+        <button class="btn btn-green" style="margin: 0 1rem;">Get Started Now</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align:left;">
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="#">SSL Certificates</a></li>
+          <li><a href="#">Wildcard SSL</a></li>
+          <li><a href="#">Multi-Domain SSL</a></li>
+          <li><a href="#">Code Signing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Installation Guides</a></li>
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">Status Page</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider">
+      <p style="color: #cbd5e1;">© 2025 ApnaSSL. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

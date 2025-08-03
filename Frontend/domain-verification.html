@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Domain Verification | ApnaSSL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --accent-green: #22c55e;
+      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-blue);
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .header-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header-logo-icon {
+      width: 52px;
+      height: auto;
+      display: block;
+    }
+
+    .header-logo-text {
+      font-family: 'Poppins', 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 2.8rem;
+      letter-spacing: 0.01em;
+      color: white;
+      line-height: 1;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .verification-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .method-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .method-card h3 {
+      color: var(--accent-green);
+      margin-top: 0;
+    }
+
+    .steps-list {
+      color: #e2e8f0;
+      padding-left: 1.5rem;
+    }
+
+    .steps-list li {
+      margin-bottom: 1rem;
+    }
+
+    .code-block {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .verification-form {
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #e2e8f0;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-green {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .btn-green:hover {
+      background: #16a34a;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .tab {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .tab.active {
+      background: var(--accent-green);
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center;">
+         <img src="ApnaSSL.png" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
+        <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
+      </div>
+      <nav style="display: flex; align-items: center; gap: 1.5rem;">
+          <a href="#">Certificates</a>
+          <a href="#">Support</a>
+          <a href="#">About</a>
+          <button class="btn btn-outline" style="margin-left:1rem;">Login</button>
+      </nav>
+
+    </div>
+  </header>
+  
+  <main class="container">
+    <h1 style="text-align: center;">Domain Verification</h1>
+    <p style="text-align: center; color: #cbd5e1; max-width: 600px; margin: 1rem auto;">
+      Choose your preferred method to verify domain ownership. This step is required before we can issue your SSL certificate.
+    </p>
+
+    <div class="verification-form">
+      <div class="form-group">
+        <label for="domain">Domain to Verify</label>
+        <input type="text" id="domain" placeholder="example.com" required>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active">HTTP Verification</div>
+      <div class="tab">DNS Verification</div>
+      <div class="tab">Email Verification</div>
+    </div>
+
+    <div class="verification-methods">
+      <!-- HTTP Method -->
+      <div class="method-card">
+        <h3>HTTP File Verification</h3>
+        <p>Upload a verification file to your web server.</p>
+        <ol class="steps-list">
+          <li>Download the verification file:
+            <div class="code-block">
+              .well-known/pki-validation/verification.txt
+              <button class="copy-btn">Copy Path</button>
+            </div>
+          </li>
+          <li>Upload the file to your web server at:
+            <div class="code-block">
+              http://your-domain.com/.well-known/pki-validation/verification.txt
+              <button class="copy-btn">Copy URL</button>
+            </div>
+          </li>
+          <li>Click verify to complete the process</li>
+        </ol>
+        <button class="btn btn-green">Start HTTP Verification</button>
+      </div>
+
+      <!-- DNS Method -->
+      <div class="method-card">
+        <h3>DNS Record Verification</h3>
+        <p>Add a TXT record to your domain's DNS settings.</p>
+        <ol class="steps-list">
+          <li>Add this TXT record to your DNS settings:
+            <div class="code-block">
+              Name: _pki-validation
+              Value: apnassl-verification=randomstring123
+              <button class="copy-btn">Copy Record</button>
+            </div>
+          </li>
+          <li>Wait for DNS propagation (usually 5-30 minutes)</li>
+          <li>Click verify to complete the process</li>
+        </ol>
+        <button class="btn btn-green">Start DNS Verification</button>
+      </div>
+
+      <!-- Email Method -->
+      <div class="method-card">
+        <h3>Email Verification</h3>
+        <p>Receive a verification email at your domain.</p>
+        <ol class="steps-list">
+          <li>Choose an email address:
+            <ul>
+              <li>admin@your-domain.com</li>
+              <li>administrator@your-domain.com</li>
+              <li>webmaster@your-domain.com</li>
+              <li>hostmaster@your-domain.com</li>
+            </ul>
+          </li>
+          <li>Click the verification link in the email</li>
+          <li>Complete the verification process</li>
+        </ol>
+        <button class="btn btn-green">Start Email Verification</button>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 4rem;">
+      <h2>Need Help?</h2>
+      <p style="color: #cbd5e1; margin-bottom: 2rem;">Our support team is available 24/7 to assist with domain verification</p>
+      <a href="support.html" class="btn btn-green">Contact Support</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align:left;">
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="#">SSL Certificates</a></li>
+          <li><a href="#">Wildcard SSL</a></li>
+          <li><a href="#">Multi-Domain SSL</a></li>
+          <li><a href="#">Code Signing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Installation Guides</a></li>
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">Status Page</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider">
+      <p style="color: #cbd5e1;">© 2025 ApnaSSL. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
