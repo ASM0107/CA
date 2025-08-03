@@ -5,18 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Installation Guides | ApnaSSL</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-blue: #1e3a8a;
-      --accent-green: #22c55e;
-      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg-blue);
-      color: white;
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
     }
 
     a {
@@ -179,24 +169,24 @@
 </head>
 <body>
   <header class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div style="display: flex; align-items: center;">
-         <img src="ApnaSSL.png" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
-        <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
+    <div class="header-brand">
+      <div class="header-logo-row">
+         <img src="ApnaSSL.png" alt="ApnaSSL Logo" class="header-logo-icon">
+        <span class="header-logo-text">ApnaSSL</span>
       </div>
-      <nav style="display: flex; align-items: center; gap: 2rem;">
+      <nav>
         <a href="certificates.html">Certificates</a>
         <a href="support.html">Support</a>
         <a href="about.html">About</a>
-        <a href="login.html" class="btn btn-outline" style="margin-left:1rem;">Login</a>
+        <a href="login.html" class="btn btn-outline ml-3">Login</a>
       </nav>
     </div>
   </header>
   
 
   <main class="container">
-    <h1 style="text-align: center;">SSL Certificate Installation Guides</h1>
-    <p style="text-align: center; color: #cbd5e1; max-width: 600px; margin: 1rem auto;">
+    <h1 class="text-center">SSL Certificate Installation Guides</h1>
+    <p class="text-center text-muted container-sm mb-4">
       Step-by-step instructions for installing SSL certificates on various platforms and web servers.
     </p>
 
@@ -208,7 +198,7 @@
       <!-- Apache -->
       <div class="guide-card">
         <h3>Apache Web Server</h3>
-        <p style="color: #cbd5e1;">Install SSL certificate on Apache HTTP Server</p>
+        <p class="text-muted">Install SSL certificate on Apache HTTP Server</p>
         <div class="steps-list">
           <ol>
             <li>Generate CSR</li>
@@ -223,7 +213,7 @@
       <!-- Nginx -->
       <div class="guide-card">
         <h3>Nginx</h3>
-        <p style="color: #cbd5e1;">Install SSL certificate on Nginx web server</p>
+        <p class="text-muted">Install SSL certificate on Nginx web server</p>
         <div class="steps-list">
           <ol>
             <li>Generate Private Key</li>
@@ -238,7 +228,7 @@
       <!-- IIS -->
       <div class="guide-card">
         <h3>Microsoft IIS</h3>
-        <p style="color: #cbd5e1;">Install SSL certificate on IIS server</p>
+        <p class="text-muted">Install SSL certificate on IIS server</p>
         <div class="steps-list">
           <ol>
             <li>Import Certificate</li>
@@ -253,7 +243,7 @@
       <!-- cPanel -->
       <div class="guide-card">
         <h3>cPanel</h3>
-        <p style="color: #cbd5e1;">Install SSL certificate using cPanel</p>
+        <p class="text-muted">Install SSL certificate using cPanel</p>
         <div class="steps-list">
           <ol>
             <li>Access SSL/TLS</li>
@@ -268,7 +258,7 @@
       <!-- Plesk -->
       <div class="guide-card">
         <h3>Plesk</h3>
-        <p style="color: #cbd5e1;">Install SSL certificate on Plesk panel</p>
+        <p class="text-muted">Install SSL certificate on Plesk panel</p>
         <div class="steps-list">
           <ol>
             <li>Access SSL Certificates</li>
@@ -283,7 +273,7 @@
       <!-- Cloud Platforms -->
       <div class="guide-card">
         <h3>Cloud Platforms</h3>
-        <p style="color: #cbd5e1;">Install on AWS, Google Cloud, or Azure</p>
+        <p class="text-muted">Install on AWS, Google Cloud, or Azure</p>
         <div class="steps-list">
           <ol>
             <li>Upload Certificate</li>
@@ -296,16 +286,16 @@
       </div>
     </div>
 
-    <div style="text-align: center; margin-top: 4rem;">
+    <div class="text-center mt-16">
       <h2>Need Help?</h2>
-      <p style="color: #cbd5e1; margin-bottom: 2rem;">Our support team is available 24/7 to assist you with installation</p>
+      <p class="text-muted mb-8">Our support team is available 24/7 to assist you with installation</p>
       <a href="support.html" class="btn btn-green">Contact Support</a>
     </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    <div class="container grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align:left;">
+    <div class="container grid grid-3 text-left">
       <div>
         <h4>Contact Us</h4>
         <ul>
@@ -335,7 +325,7 @@
       </div>
     </div>
     <div class="divider">
-      <p style="color: #cbd5e1;">© 2025 ApnaSSL. All rights reserved.</p>
+      <p class="text-muted">© 2025 ApnaSSL. All rights reserved.</p>
     </div>
   </footer>
 </body>

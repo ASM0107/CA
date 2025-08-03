@@ -5,182 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Certificate Generator | ApnaSSL</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-blue: #1e3a8a;
-      --accent-green: #22c55e;
-      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg-blue);
-      color: white;
-    }
-
-    a {
-      text-decoration: none;
-      color: white;
-    }
-
-    .header-logo-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .header-logo-icon {
-      width: 52px;
-      height: auto;
-      display: block;
-    }
-
-    .header-logo-text {
-      font-family: 'Poppins', 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 2.8rem;
-      letter-spacing: 0.01em;
-      color: white;
-      line-height: 1;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-
-    .generator-card {
-      max-width: 800px;
-      margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 1rem;
-      padding: 2rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #e2e8f0;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
-      font-size: 1rem;
-    }
-
-    .form-group textarea {
-      min-height: 120px;
-      font-family: monospace;
-    }
-
-    .btn {
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      border: none;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .btn-green {
-      background: var(--accent-green);
-      color: white;
-    }
-
-    .btn-green:hover {
-      background: #16a34a;
-    }
-
-    .code-block {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      font-family: monospace;
-      font-size: 0.9rem;
-      color: #e2e8f0;
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-
-    .copy-btn {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    .steps-nav {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .progress-bar {
-      height: 4px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 2px;
-      margin: 2rem 0;
-      overflow: hidden;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      background: var(--accent-green);
-      width: 33%;
-      transition: width 0.3s ease;
-    }
-
-    .info-box {
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.2);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin: 1rem 0;
-      color: #e2e8f0;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div style="display: flex; align-items: center;">
-         <img src="ApnaSSL.png" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
-        <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
+    <div class="header-brand">
+      <div class="brand-logo">
+         <img src="ApnaSSL.png" alt="ApnaSSL Logo" class="header-logo-icon">
+        <span class="brand-text">ApnaSSL</span>
       </div>
-      <nav style="display: flex; align-items: center; gap: 2rem;">
+      <nav>
+        <a href="homepage.html">Home</a>
         <a href="certificates.html">Certificates</a>
         <a href="support.html">Support</a>
         <a href="about.html">About</a>
-        <a href="login.html" class="btn btn-outline" style="margin-left:1rem;">Login</a>
-      </nav>
+        <a href="login.html" class="btn btn-outline ml-3">Login</a>
     </div>
   </header>
 
