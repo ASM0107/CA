@@ -1,4 +1,4 @@
-// homepage.js - final version based on your routing logic
+// scripts.js - final version of routing logic
 
 document.addEventListener("DOMContentLoaded", function () {
   // Logo or Text - Homepage
@@ -81,3 +81,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
