@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -206,7 +207,7 @@
   <header class="container">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <div style="display: flex; align-items: center;">
-         <img src="ApnaSSL.png" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
+         <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
         <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
       </div>
       <nav style="display: flex; align-items: center; gap: 1.5rem;">
@@ -341,7 +342,9 @@
       <p style="color: #cbd5e1;">© 2025 ApnaSSL. All rights reserved.</p>
     </div>
   </footer>
+  <script src="{% static 'js/homepage.js' %}"></script>
 </body>
 </html>
+
 
 
