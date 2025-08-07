@@ -182,18 +182,18 @@
   <header class="container">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <div style="display: flex; align-items: center;">
-         <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
+         <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
         <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
       </div>
-      <nav style="display: flex; align-items: center;  gap: 1.5rem;">
-        <a href="#">Certificates</a>
-        <a href="#">Support</a>
-        <a href="#">About</a>
-        <button class="btn btn-outline" style="margin-left:1rem;">Login</button>
+      <nav style="display: flex; align-items: center;">
+        <a href="{% url 'certificates' %}">Certificates</a>
+        <a href="{% url 'support' %}">Support</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'login' %}"><button class="btn btn-outline" style="margin-left:1rem;">Login</button></a>
       </nav>
     </div>
   </header>
-  
+
 
   <main class="container">
     <h1 style="text-align: center;">SSL Certificate Installation Guides</h1>

@@ -216,11 +216,11 @@
          <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
         <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
       </div>
-      <nav style="display: flex; align-items: center; gap: 1.5rem">
-        <a href="#">Certificates</a>
-        <a href="#">Support</a>
-        <a href="#">About</a>
-        <button class="btn btn-outline" style="margin-left:1rem;">Login</button>
+      <nav style="display: flex; align-items: center;">
+        <a href="{% url 'certificates' %}">Certificates</a>
+        <a href="{% url 'support' %}">Support</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'login' %}"><button class="btn btn-outline" style="margin-left:1rem;">Login</button></a>
       </nav>
     </div>
   </header>
@@ -279,7 +279,7 @@
           <div class="format-tab active">Private Key</div>
           <div class="format-tab">Public Key</div>
         </div>
-        
+
         <div class="key-output">-----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDBj08GcmJ+EY+k
 ...

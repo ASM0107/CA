@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-vbb+llgxnnu8tkhn379f#$-ewdq0p@z0d^e8q4l&hziof5*xh7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ApnaSSL.pythonanywhere.com']
 
 
 # Application definition
@@ -75,14 +75,16 @@ LOGIN_REDIRECT_URL = '/dashboard/'  # Or wherever you want to send the user
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'apnassldb',           # Your DB name
-        'USER': 'postgres',            # Your DB user (default: postgres)
-        'PASSWORD': 'Saurav1234+',   # Replace with your actual password
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ApnaSSL$User_info',  # Your MySQL DB name
+        'USER': 'ApnaSSL',       # Your MySQL DB user
+        'PASSWORD': 'Sky1234+@',   # Secure way
+        'HOST': 'ApnaSSL.mysql.pythonanywhere-services.com',    #My Host
+        'PORT': '3306',       # MySQL port
     }
 }
 

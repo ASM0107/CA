@@ -4,8 +4,7 @@ from django.contrib import messages
 from .forms import SignUpForm, LoginForm, CSRUploadForm
 from .models import CertificateRequest
 import secrets
-
-
+from django.contrib.auth.decorators import login_required
 
 def homepage(request):
     return render(request, 'caCode/homepage.html')
@@ -22,6 +21,7 @@ def auto_renewal(request):
 def certificate_generator(request):
     return render(request, 'caCode/certificate-generator.html')
 
+@login_required(login_url='login')
 def certificates(request):
     return render(request, 'caCode/certificates.html')
 

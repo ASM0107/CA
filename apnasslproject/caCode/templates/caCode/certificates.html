@@ -34,10 +34,10 @@
     .hero {
     display: flex;
     align-items: center;
-    justify-content: flex-start;   
-    gap: 0.5rem;                     
-    padding: 0.5rem 0rem;         
-    flex-wrap: wrap;              
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem 0rem;
+    flex-wrap: wrap;
     }
 
     .logo-section {
@@ -293,7 +293,7 @@
       <h2 style="font-size: 2rem; font-weight: bold;">Ready to choose a certificate?</h2>
       <p style="color:#cbd5e1;">Join 2M+ websites already protected by ApnaSSL.</p>
       <div style="margin-top:2rem;">
-        <button class="btn btn-green">Start for Free</button>
+        <a href="{% url 'certificate_generator' %}"><button class="btn btn-green">Start for Free</button></a>
       </div>
     </section>
   </main>
