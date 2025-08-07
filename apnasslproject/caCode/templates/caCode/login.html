@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | ApnaSSL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --accent-green: #22c55e;
+      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-blue);
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .login-card {
+      max-width: 400px;
+      margin: 4rem auto;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #e2e8f0;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-green {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .btn-green:hover {
+      background: #16a34a;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .error-msg {
+      color: #f87171;
+      background: rgba(255, 0, 0, 0.1);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center;">
+         <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px;" class="header-logo-icon">
+        <span style="font-size: 3.5rem; font-family: 'Inter', serif; font-weight: 500;">ApnaSSL</span>
+      </div>
+      <nav style="display: flex; align-items: center; gap: 1.5rem">
+        <a href="#">Certificates</a>
+        <a href="#">Support</a>
+        <a href="#">About</a>
+        <a href="{% url 'login' %}" class="btn btn-outline" style="margin-left:1rem;">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="login-card">
+      <h2 class="text-center">Welcome Back</h2>
+      <p class="text-center" style="color: #cbd5e1; margin-bottom: 2rem;">Log in to manage your SSL certificates</p>
+      
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" placeholder="Username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="Password" required>
+        </div>
+
+        {% if messages %}
+          {% for message in messages %}
+            <p class="error-msg">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+
+        <button type="submit" class="btn btn-green">Login</button>
+      </form>
+
+      <div class="text-center" style="margin-top: 2rem; color: #cbd5e1;">
+        Don't have an account? <a href="{% url 'signup' %}" style="color: var(--accent-green);">Sign up</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p style="color: #cbd5e1; text-align: center;">© 2025 ApnaSSL. All rights reserved.</p>
+  </footer>
+</body>
+</html>

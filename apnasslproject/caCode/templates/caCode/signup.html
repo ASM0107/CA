@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | ApnaSSL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background-dark: #1e40af;
+      --card-bg: #1e3a8a;
+      --text-light: #cbd5e1;
+      --accent-green: #4ade80;
+      --input-bg: #0f172a;
+      --input-border: #334155;
+      --btn-bg: #4ade80;
+      --btn-hover-bg: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-dark);
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .btn {
+      background-color: var(--btn-bg);
+      color: black;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--btn-hover-bg);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signup-card {
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 4rem auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group, .form-row {
+      margin-bottom: 1rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--text-light);
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--input-border);
+      background-color: var(--input-bg);
+      color: white;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center;">
+        <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px;" class="header-logo-icon">
+        <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
+      </div>
+      <nav style="display: flex; align-items: center; gap: 1.5rem">
+        <a href="#">Certificates</a>
+        <a href="#">Support</a>
+        <a href="#">About</a>
+        <a href="{% url 'login' %}" class="btn btn-outline" style="margin-left:1rem;">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="signup-card">
+      <h2 class="text-center" style="margin-top: 0;">Create Your Account</h2>
+      <p class="text-center" style="color: #cbd5e1; margin-bottom: 2rem;">Join thousands of businesses securing their websites</p>
+
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li style="color: red;">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      
+      {% if errors %}
+      <div class="error-box" style="color: red; margin-bottom: 10px;">
+        {% for field, field_errors in errors.items %}
+          {% for error in field_errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+     <form method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <label for="id_username">Username</label>
+      {{ form.username }}
+      {{ form.username.errors }}
+
+      <label for="id_first_name">First Name</label>
+      {{ form.first_name }}
+      {{ form.first_name.errors }}
+
+      <label for="id_last_name">Last Name</label>
+      {{ form.last_name }}
+      {{ form.last_name.errors }}
+
+      <label for="id_email">Business Email</label>
+      {{ form.email }}
+      {{ form.email.errors }}
+
+      <label for="id_password1">Password</label>
+      {{ form.password1 }}
+      {{ form.password1.errors }}
+
+      <label for="id_password2">Confirm Password</label>
+      {{ form.password2 }}
+      {{ form.password2.errors }}
+
+      <button type="submit" class="btn" style="margin-top: 1rem;">Sign Up</button>
+    </form>
+
+
+      <div class="text-center" style="margin-top: 2rem; color: #cbd5e1;">
+        Already have an account? <a href="{% url 'login' %}" style="color: var(--accent-green);">Log in</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 ApnaSSL. All rights reserved.
+  </footer>
+
+  <script src="{% static 'js/homepage.js' %}"></script>
+</body>
+</html>
