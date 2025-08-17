@@ -1,42 +1,39 @@
-# Frontend
 
-This folder contains the frontend files for the Certificate Authority (CA) project. It serves as the user interface for interacting with certificate management features such as SSL certificate generation, domain verification, key generation, organization validation, certificate revocation, and support.
+# caCode Templates Overview
 
-## File Overview
+This directory contains the HTML templates for the ApnaSSL Certificate Authority (CA) platform. Each template supports a specific user workflow or feature in the CA web application.
 
-- **Database.html**: Interface for managing and viewing database entries.
-- **about.html**: Information about the project or platform.
-- **auto-renewal.html**: Page for managing automatic renewal of certificates.
-- **certificate-generator.html**: Tool for generating certificates.
-- **certificates.html**: List and details of issued certificates.
-- **domain-verification.html**: Domain verification workflow and status.
-- **homepage.html**: Main landing page for the frontend.
-- **installation-guides.html**: Guides for installing certificates and related tools.
-- **key-generator.html**: Key generation tool for SSL certificates.
-- **login.html**: Login page for user authentication.
-- **organization-validation.html**: Organization validation workflow.
-- **revocation.html**: Certificate revocation management.
-- **signup.html**: User registration page.
-- **support.html**: Support and help resources.
-- **ApnaSSL.png**: Project logo or branding image.
+## Template List & Purpose
 
-## Features
+- `about.html`: Information about the CA platform and its mission.
+- `auto-renewal.html`: Manage and view auto-renewal settings for certificates.
+- `certificate-generator.html`: Interface for generating digital certificates.
+- `certificates.html`: List and manage issued certificates.
+- `dashboard.html`: Main user dashboard for certificate management and status overview.
+- `Database.html`: Database management and record viewing interface.
+- `dns-verification.html`: DNS-based domain verification workflow.
+- `domain-verification.html`: General domain verification process.
+- `homepage.html`: Landing page for the CA platform.
+- `installation-guides.html`: Step-by-step guides for installing certificates and related software.
+- `key-generator.html`: Generate cryptographic key pairs for certificate requests.
+- `login.html`: User login page.
+- `organization-validation.html`: Organization validation workflow for OV/EV certificates.
+- `revocation.html`: Manage certificate revocation requests.
+- `signup.html`: User registration page.
+- `support.html`: Support resources and contact information.
 
-- Generate and manage SSL certificates.
-- Verify domains and organizations.
-- Automatic renewal and revocation of certificates.
-- User authentication and management.
-- Database management for certificate records.
-- Installation guides and support resources.
+## Usage
 
-## Getting Started
+These templates are rendered by Django views in the `caCode` app. They provide the frontend for all major certificate authority workflows, including certificate requests, domain and organization validation, revocation, and user management.
 
-To run or view the frontend, open the relevant HTML file in a web browser. For further setup and integration with backend services, refer to the installation guides.
+Static assets (images, JavaScript) referenced in these templates are located in the `static/` directory of the app.
 
-## Support
+## Customization
 
-For help and support, visit `support.html` in this directory.
+You can modify these templates to change the look, feel, or content of the CA platform. For custom workflows, create new templates in this directory and update the corresponding Django views.
 
----
+## License
+
+This project is licensed under the MIT License.
 
 *This README provides an overview of the frontend files and their functionality in the CA project.*
