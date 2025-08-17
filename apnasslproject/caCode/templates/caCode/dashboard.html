@@ -1,0 +1,404 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApnaSSL Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --accent-green: #22c55e;
+      --bg-blue: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-blue);
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .header-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header-logo-icon {
+      width: 52px;      /* Adjust for proportion to text */
+      height: auto;     /* Maintains aspect ratio */
+      display: block;
+    }
+
+    .header-logo-text {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 600;                       /* SemiBold like the logo */
+    font-size: 2.8rem;                      /* Adjust to closely match image size */
+    letter-spacing: 0.01em;
+    color: white;
+    line-height: 1;                         /* Remove vertical extra space */
+  }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    header {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #7cf68f;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #0a2b60;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #7cf68f;
+    }
+
+    .card label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .card input[type="text"],
+    .card input[type="file"],
+    .card select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .card p {
+      text-align: center;
+      color: #c2e0ff;
+      margin: 10px 0;
+    }
+
+    .btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-green {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .btn-green:hover {
+      background: #16a34a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #1e3a8a;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #0a2b60;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    table thead {
+      background-color: #062157;
+    }
+
+    table th,
+    table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #123f7d;
+      color: white;
+    }
+
+    table th {
+      color: #7cf68f;
+      font-weight: bold;
+    }
+
+    table td button {
+      padding: 6px 12px;
+      margin-right: 6px;
+      background-color: #1ddc80;
+      color: #031c47;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    table td button:hover {
+      background-color: #16c172;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav {
+        display: none;
+      } 
+    }
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+      line-height: 1.75;
+    }
+    section {
+      padding: 4rem 1rem;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    .divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+      line-height: 1.75;
+    }
+    section {
+      padding: 4rem 1rem;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    .divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center;">
+         <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
+        <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
+      </div>
+      <nav style="display: flex; align-items: center;gap: 1.5rem">
+        <a href="{% url 'certificates' %}">Certificates</a>
+        <a href="{% url 'support' %}">Support</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'login' %}"><button class="btn btn-outline" style="margin-left:1rem;">Login</button></a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div style="max-width: 450px; margin: 40px auto; background: #0a2a55; padding: 25px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); font-family: 'Segoe UI', sans-serif; color: #e0e6ed;">
+
+  <h2 style="margin-bottom: 20px; color: #3ee577; font-size: 22px; font-weight: 600;">
+    Request Certificate
+  </h2>
+
+  <!-- Upload CSR -->
+  <form method="post" enctype="multipart/form-data" style="margin-bottom: 20px;">
+    <label for="csr-upload" style="font-size: 14px; font-weight: 500; display: block; margin-bottom: 8px;">
+      Upload CSR File
+    </label>
+    <input type="file" id="csr-upload" name="csr-file"
+           style="display: block; padding: 6px; border: 1px solid #3ee577; border-radius: 8px; background: #102c4a; color: #fff; width: 100%; margin-bottom: 12px; cursor: pointer;" />
+
+    <button type="submit" 
+            style="width: 100%; padding: 10px; background: #3ee577; color: #0a2a55; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s;">
+      Submit CSR
+    </button>
+  </form>
+
+  <!-- OR -->
+  <div style="text-align: center; font-weight: 500; margin: 15px 0; color: #aab4c8;">OR</div>
+
+  <!-- Generate Key -->
+  <div style="margin-bottom: 20px;">
+    <label style="font-size: 14px; font-weight: 500; display: block; margin-bottom: 10px;">
+      Generate New Key
+    </label>
+    <button type="button" 
+            style="width: 100%; padding: 10px; background: #3ee577; color: #0a2a55; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s;">
+      Generate Key Pair
+    </button>
+  </div>
+
+  <!-- Request Button -->
+  <div>
+    <button type="button" 
+            style="width: 100%; padding: 10px; background: #3ee577; color: #0a2a55; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s;">
+      Request Certificate
+    </button>
+  </div>
+</div>
+
+
+    <!-- Certificate Table -->
+    <div class="card">
+      <h2>View All Certificates</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Issued On</th>
+            <th>Expires</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cert in certificates %}
+          <tr>
+            <td>{{ cert.domain }}</td>
+            <td>{% if cert.status == 'issued' %}{{ cert.created_at|date:'Y-m-d' }}{% else %}-{% endif %}</td>
+            <td>{% if cert.status == 'issued' %}{{ cert.created_at|date:'Y-m-d' }}{% else %}-{% endif %}</td>
+            <td>{{ cert.get_status_display }}</td>
+            <td>
+              {% if cert.status == 'issued' %}
+                <a href="{{ cert.csr.url }}" class="btn btn-green">Download</a>
+                <button class="btn">Renew</button>
+                <button class="btn">Revoke</button>
+              {% elif cert.verified and cert.status != 'issued' %}
+                <form method="post" action="{% url 'issue_certificate' cert.id %}" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-green">Issue Certificate</button>
+                </form>
+              {% else %}
+                <span style="color:#cbd5e1;">Not issued</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="5" style="text-align:center; color:#cbd5e1;">No certificates found.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align:left;">
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="#">SSL Certificates</a></li>
+          <li><a href="#">Wildcard SSL</a></li>
+          <li><a href="#">Multi-Domain SSL</a></li>
+          <li><a href="#">Code Signing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Installation Guides</a></li>
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">Status Page</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider">
+      <p style="color: #cbd5e1;">© 2025 ApnaSSL. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="{% static 'js/homepage.js' %}"></script>
+</body>
+</html>

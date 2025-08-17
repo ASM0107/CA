@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-vbb+llgxnnu8tkhn379f#$-ewdq0p@z0d^e8q4l&hziof5*xh7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ApnaSSL.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_countries',
     'caCode'
 ]
 
@@ -80,10 +81,10 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ApnaSSL$User_info',  # Your MySQL DB name
-        'USER': 'ApnaSSL',       # Your MySQL DB user
-        'PASSWORD': 'Sky1234+@',   # Secure way
-        'HOST': 'ApnaSSL.mysql.pythonanywhere-services.com',    #My Host
+        'NAME': 'apnassldb',  # Your MySQL DB name
+        'USER': 'root',       # Your MySQL DB user
+        'PASSWORD': 'Sky1234+',   # Secure way
+        'HOST': 'localhost',    #My Host
         'PORT': '3306',       # MySQL port
     }
 }

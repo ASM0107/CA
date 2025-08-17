@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Certificate Generator | ApnaSSL</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary-blue: #1e3a8a;
@@ -18,7 +20,6 @@
       margin: 0;
       background: var(--bg-blue);
       color: white;
-      font-family: 'Inter', sans-serif;
     }
 
     a {
@@ -26,47 +27,55 @@
       color: white;
     }
 
+  .header-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-logo-icon {
+    width: 52px;      /* Adjust for proportion to text */
+    height: auto;     /* Maintains aspect ratio */
+    display: block;
+  }
+
+  .header-logo-text {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 600;                       /* SemiBold like the logo */
+    font-size: 2.8rem;                      /* Adjust to closely match image size */
+    letter-spacing: 0.01em;
+    color: white;
+    line-height: 1;                         /* Remove vertical extra space */
+  }
+
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 1rem;
     }
 
-    .header-logo-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+    header {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .header-logo-icon {
-      width: 52px;
-      height: auto;
-      display: block;
+    nav a {
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
-    .header-logo-text {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 2.8rem;
-      letter-spacing: 0.01em;
-      color: white;
-      line-height: 1;
+    nav a:hover {
+      color: #93c5fd;
     }
 
     .btn {
-      padding: 0.75rem 1.5rem;
+      padding: 0.5rem 1.25rem;
       border-radius: 0.5rem;
+      font-weight: 600;
       border: none;
-      font-size: 1rem;
-      font-weight: bold;
       cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid white;
-      color: white;
+      transition: background 0.3s, color 0.3s;
     }
 
     .btn-green {
@@ -78,282 +87,429 @@
       background: #16a34a;
     }
 
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #1e3a8a;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #1e3a8a, #1e40af, #2563eb);
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; }
     .generator-card {
-      max-width: 800px;
-      margin: 2rem auto;
+      max-width: 800px; margin: 2rem auto;
       background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 1rem;
-      padding: 2rem;
+      border-radius: 1rem; padding: 2rem;
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #e0e7ef; }
+    .form-group input, .form-group select {
+      width: 100%; padding: 0.75rem 1rem;
+      border-radius: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.09); color: white; font-size: 1rem;
+    }
+    .btn-green {
+      background: #22c55e; color: white;
+      padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem;
+      cursor: pointer; font-weight: bold;
+    }
+    .btn-green:hover { background: #16a34a; }
+    /* Dropdown container background */
+    .select2-container--default .select2-results {
+        background-color: #1e293b !important; /* dark background */
+        border-radius: 8px;
     }
 
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    .form-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-      background: rgba(255,255,255,0.04);
-      border-radius: 0.7rem;
-      padding: 1rem 0.5rem;
-      box-shadow: 0 2px 8px 0 rgba(30,58,138,0.04);
-    }
-    .form-row .form-group {
-      flex: 1 1 220px;
-      min-width: 200px;
-      margin-bottom: 0;
-      padding: 0 0.5rem;
-    }
-    .form-group label {
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      color: #e0e7ef;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      border: 1.5px solid rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.09);
-      color: #f1f5f9;
-      font-size: 1rem;
-      transition: border 0.2s, box-shadow 0.2s;
-      box-shadow: 0 1px 4px 0 rgba(30,58,138,0.04);
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border: 1.5px solid var(--accent-green);
-      box-shadow: 0 0 0 2px rgba(34,197,94,0.15);
-      background: rgba(255,255,255,0.13);
-    }
-    @media (max-width: 900px) {
-      .form-row {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0.5rem 0.2rem;
-      }
-      .form-row .form-group {
-        min-width: 100%;
-        padding: 0;
-      }
+    /* Dropdown options */
+    .select2-container--default .select2-results__option {
+        color: white !important;   /* text always visible */
+        padding: 8px 12px;
+        font-size: 14px;
+        background-color: transparent !important;
     }
 
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #e2e8f0;
+    /* Highlight (hover/selected) */
+    .select2-container--default .select2-results__option--highlighted {
+        background-color: #4a90e2 !important;
+        color: #fff !important;
     }
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
-      font-size: 1rem;
+    /* Selected value box */
+    .select2-container--default .select2-selection--single {
+        background-color: #1e3a8a !important;
+        border: none !important;
+        border-radius: 6px !important;
+        color: white !important;
+        display: flex;
     }
 
-    .form-group textarea {
-      min-height: 120px;
-      font-family: monospace;
+    /* Selected text */
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: white !important;
+        line-height: 42px !important;
     }
 
-    .code-block {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      font-family: monospace;
-      font-size: 0.9rem;
-      color: #e2e8f0;
-      overflow-x: auto;
-      margin: 1rem 0;
+    /* Dropdown arrow */
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 8px !important;
+    }
+    .grid {
+      display: grid;
+      gap: 2rem;
     }
 
-    .copy-btn {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
-    .steps-nav {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .progress-bar {
-      height: 4px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 2px;
-      margin: 2rem 0;
-      overflow: hidden;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      background: var(--accent-green);
-      width: 33%;
-      transition: width 0.3s ease;
-    }
-
-    .info-box {
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.2);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin: 1rem 0;
-      color: #e2e8f0;
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
     footer {
-      margin-top: 4rem;
-      padding: 3rem 1rem;
       background: rgba(0, 0, 0, 0.2);
-    }
-
-    footer h4 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
+      padding: 2rem 0;
+      text-align: center;
     }
 
     footer ul {
       list-style: none;
       padding: 0;
-      margin: 0;
+      line-height: 1.75;
     }
 
-    footer ul li {
-      margin: 0.5rem 0;
+    section {
+      padding: 4rem 1rem;
     }
 
-    footer a {
-      color: #e0e0e0;
-      font-size: 0.95rem;
+    h1, h2, h3 {
+      margin-top: 0;
     }
 
     .divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
       margin-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 1rem;
-      text-align: center;
+      padding-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <header class="container">
+    <header class="container">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <div style="display: flex; align-items: center;">
-         <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px; height: auto;" class="header-logo-icon">
+        <img src="{% static 'images/ApnaSSL.png' %}" alt="ApnaSSL Logo" style="width: 108px;" class="header-logo-icon">
         <span style="font-size: 3.5rem; font-family: 'Inter', 'Times New Roman', Times, serif; font-weight: 500;">ApnaSSL</span>
       </div>
-      <nav style="display: flex; align-items: center;gap: 1.5rem">
+      <nav style="display: flex; align-items: center; gap: 1.5rem">
         <a href="{% url 'certificates' %}">Certificates</a>
         <a href="{% url 'support' %}">Support</a>
         <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'login' %}"><button class="btn btn-outline" style="margin-left:1rem;">Login</button></a>
+        <a href="{% url 'login' %}" class="btn btn-outline" style="margin-left:1rem;">Login</a>
       </nav>
     </div>
   </header>
-
   <main class="container">
     <h1 style="text-align: center;">SSL Certificate Generator</h1>
     <p style="text-align: center; color: #cbd5e1; max-width: 600px; margin: 1rem auto;">
-      Generate your CSR (Certificate Signing Request) and private key. This is the first step in obtaining your SSL certificate.
+      Fill out the form to generate your CSR (Certificate Signing Request).
     </p>
 
     <div class="generator-card">
-      <div class="progress-bar">
-        <div class="progress-bar-fill"></div>
-      </div>
-
-      <form>
-        <h3>Step 1: Enter Certificate Details</h3>
+      <form method="POST" action="{% url 'generate_csr' %}">
+        {% csrf_token %}
 
         <div class="form-group">
           <label for="commonName">Common Name (Domain)</label>
-          <input type="text" id="commonName" placeholder="example.com" required>
-          <small style="color: #cbd5e1; display: block; margin-top: 0.5rem;">
-            The fully-qualified domain name (FQDN) of your server
-          </small>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="organization">Organization</label>
-            <input type="text" id="organization" placeholder="Your Company Ltd.">
-          </div>
-          <div class="form-group">
-            <label for="department">Department</label>
-            <input type="text" id="department" placeholder="IT">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" id="city" placeholder="Mumbai">
-          </div>
-          <div class="form-group">
-            <label for="state">State</label>
-            <input type="text" id="state" placeholder="Maharashtra">
-          </div>
+          <input type="text" name="commonName" placeholder="example.com" required>
         </div>
 
         <div class="form-group">
-          <label for="country">Country</label>
-          <select id="country">
-            <option value="IN">India</option>
-            <option value="US">United States</option>
-            <option value="GB">United Kingdom</option>
+          <label for="organization">Organization (O)</label>
+          <input type="text" name="organization" placeholder="Your Company Ltd.">
+        </div>
+
+        <div class="form-group">
+          <label for="orgUnit">Organizational Unit (OU)</label>
+          <input type="text" name="orgUnit" placeholder="IT Department">
+        </div>
+
+        <div class="form-group">
+          <label for="city">Locality (L)</label>
+          <input type="text" name="city" placeholder="Haldwani">
+        </div>
+
+        <div class="form-group">
+          <label for="state">State/Province (ST)</label>
+          <input type="text" name="state" placeholder="Uttarakhand">
+        </div>
+
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<div class="form-group">
+  <label for="country">Country (C)</label>
+  <select id="country" name="country" class="form-control" style="width: 100%;" required>
+    <option value="">Select a country</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BR">Brazil</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, Democratic Republic of the</option>
+    <option value="CR">Costa Rica</option>
+    <option value="HR">Croatia</option>
+    <option value="CU">Cuba</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GR">Greece</option>
+    <option value="GD">Grenada</option>
+    <option value="GT">Guatemala</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, North</option>
+    <option value="KR">Korea, South</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Laos</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia</option>
+    <option value="MD">Moldova</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="ME">Montenegro</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PS">Palestine</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="QA">Qatar</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russia</option>
+    <option value="RW">Rwanda</option>
+    <option value="KN">Saint Kitts and Nevis</option>
+    <option value="LC">Saint Lucia</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="RS">Serbia</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SK">Slovakia</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syria</option>
+    <option value="TW">Taiwan</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania</option>
+    <option value="TH">Thailand</option>
+    <option value="TG">Togo</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Vietnam</option>
+    <option value="YE">Yemen</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+  </select>
+</div>
+
+<!-- Include jQuery + Select2 JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <script>
+          $(document).ready(function() {
+            $('#country').select2({
+              placeholder: "Select a country",
+              allowClear: true
+            });
+          });
+        </script>
+        
+
+        <div class="form-group">
+          <label for="algorithm">Key Algorithm</label>
+          <select name="algorithm">
+            <option value="RSA">RSA</option>
+            <option value="EC">Elliptic Curve (EC)</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="keySize">Key Size</label>
-          <select id="keySize">
-            <option value="2048">2048 bits (Standard)</option>
-            <option value="4096">4096 bits (Extra Security)</option>
+          <select name="keySize">
+            <option value="2048">2048 bits (RSA Standard)</option>
+            <option value="4096">4096 bits (RSA High Security)</option>
+            <option value="256">EC P-256</option>
+            <option value="384">EC P-384</option>
           </select>
         </div>
-
-        <div class="info-box">
-          💡 Tip: Use 2048 bits for standard security. 4096 bits provides extra security but may slightly impact performance.
+        <div class="form-group">
+          <label for="email">Email Address (optional)</label>
+          <input type="email" name="email" placeholder="admin@example.com">
         </div>
 
-        <div class="steps-nav">
-          <div></div>
-          <button type="submit" class="btn btn-green">Generate CSR</button>
+        <div class="form-group">
+          <label for="san">Subject Alternative Names (SANs)</label>
+          <input type="text" name="san" placeholder="www.example.com, api.example.com">
+          <small style="color:#94a3b8;">Comma-separated list of additional domains.</small>
         </div>
+
+
+        <button type="submit" class="btn-green">Generate CSR</button>
+      </form>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="{% url 'domain_verification' %}" class="btn btn-green">Proceed to Domain Verification</a>
+      </div>
       </form>
     </div>
-
-    <div style="text-align: center; margin-top: 4rem;">
-      <h2>Need Help?</h2>
-      <p style="color: #cbd5e1; margin-bottom: 2rem;">Our support team can help you generate your CSR</p>
-      <a href="support.html" class="btn btn-green">Contact Support</a>
-    </div>
   </main>
-
-  <footer>
-    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: left;">
+    <footer>
+    <div class="container grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align:left;">
       <div>
         <h4>Contact Us</h4>
         <ul>
@@ -389,4 +545,3 @@
   <script src="{% static 'js/homepage.js' %}"></script>
 </body>
 </html>
-

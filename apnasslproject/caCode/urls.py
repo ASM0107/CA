@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-
 urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('about/', views.about, name='about'),
@@ -15,4 +14,7 @@ urlpatterns = [
     path('key-generator/', views.key_generator, name='key_generator'),
     path('organization-validation/', views.organization_validation, name='organization_validation'),
     path('revocation/', views.revocation, name='revocation'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path("generate-csr/", views.generate_csr, name="generate_csr"),
+    path('verify-dns/<int:cert_id>/', views.verify_dns, name='verify_dns'),
 ]
