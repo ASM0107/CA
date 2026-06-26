@@ -1,0 +1,7 @@
+Django>=5.2,<6.0
+cryptography
+dnspython
+gunicorn
+dj-database-url
+psycopg2-binary
+whitenoise
